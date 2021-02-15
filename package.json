@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "ts-node src/index.ts",
     "superComputer.ts": "ts-node src/superComputer.ts",
+    "createCosmonauts": "ts-node src/createCosmonaut.ts",
     "lint": "eslint src/**/*",
     "lint:format": "eslint --fix src/**/*"
   },
