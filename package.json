@@ -8,6 +8,7 @@
     "superComputer": "ts-node src/superComputer.ts",
     "createCosmonauts": "ts-node src/createCosmonaut.ts",
     "getCosmonaut": "ts-node src/getCosmonaut.ts",
+    "selectCosmonaut": "ts-node src/selectCosmonaut.ts",
     "lint": "eslint src/**/*",
     "lint:format": "eslint --fix src/**/*",
     "test": "jest tests --env=node",

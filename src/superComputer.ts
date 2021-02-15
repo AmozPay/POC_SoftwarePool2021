@@ -41,4 +41,6 @@ function superComputer(nb1: number, sym: Symbols, nb2: number, callback: Callbac
   return callback(err, result);
 }
 
-export {superComputer, Callback, callback, Symbols}
+export {
+  superComputer, Callback, callback, Symbols,
+};

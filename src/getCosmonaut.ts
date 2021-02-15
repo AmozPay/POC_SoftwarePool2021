@@ -1,7 +1,7 @@
-import {Cosmonaut} from "./createCosmonaut";
+import { Cosmonaut } from './createCosmonaut';
 
 export function getCosmonaut(path: string) {
-  let json = require(path);
-  let cosmonaut: Cosmonaut = json;
+  const json = require(path);
+  const cosmonaut: Cosmonaut = json;
   return cosmonaut;
 }
