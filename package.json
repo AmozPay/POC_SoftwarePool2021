@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "ts-node src/index.ts",
-    "superComputer.ts": "ts-node src/superComputer.ts",
+    "superComputer": "ts-node src/superComputer.ts",
     "createCosmonauts": "ts-node src/createCosmonaut.ts",
+    "getCosmonaut": "ts-node src/getCosmonaut.ts",
     "lint": "eslint src/**/*",
     "lint:format": "eslint --fix src/**/*",
     "test": "jest tests --env=node",
