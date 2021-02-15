@@ -1,4 +1,4 @@
-function createCosmonaut(name: string, mission: Mission, country: Country) {
+export function createCosmonaut(name: string, mission: Mission, country: Country) {
   return { name, mission, country };
 }
 
