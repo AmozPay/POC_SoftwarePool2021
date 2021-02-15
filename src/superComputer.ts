@@ -1,4 +1,4 @@
-enum symbols {
+enum Symbols {
     ADD = '+',
     SUB = '-',
     DIV = '/',
@@ -23,23 +23,22 @@ function callback(err: Error | null, result: any): Error | number {
   return result;
 }
 
-function superComputer(nb1: number, sym: symbols, nb2: number, callback: Callback) {
+function superComputer(nb1: number, sym: Symbols, nb2: number, callback: Callback) {
   let result;
   let err;
   switch (sym) {
-    case symbols.MOD: try { result = nb1 % nb2; } catch (e) { err = e; }
+    case Symbols.MOD: try { result = nb1 % nb2; } catch (e) { err = e; }
       break;
-    case symbols.ADD: try { result = nb1 + nb2; } catch (e) { err = e; }
+    case Symbols.ADD: try { result = nb1 + nb2; } catch (e) { err = e; }
       break;
-    case symbols.SUB: try { result = nb1 - nb2; } catch (e) { err = e; }
+    case Symbols.SUB: try { result = nb1 - nb2; } catch (e) { err = e; }
       break;
-    case symbols.MUL: try { result = nb1 * nb2; } catch (e) { err = e; }
+    case Symbols.MUL: try { result = nb1 * nb2; } catch (e) { err = e; }
       break;
-    case symbols.DIV: try { result = nb1 / nb2; } catch (e) { err = e; }
+    case Symbols.DIV: try { result = nb1 / nb2; } catch (e) { err = e; }
       break;
-    default: return 'Wrong operator';
   }
   return callback(err, result);
 }
 
-superComputer(100, symbols.ADD, 0, callback);
+export {superComputer, Callback, callback, Symbols}

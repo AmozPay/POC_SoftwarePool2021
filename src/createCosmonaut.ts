@@ -1,5 +1,5 @@
-function createCosmonaut (name: string, mission: string, country: string) {
-    return {name, mission, country}
+function createCosmonaut(name: string, mission: Mission, country: Country) {
+  return { name, mission, country };
 }
 
 export interface Robot {
