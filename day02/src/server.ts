@@ -1,13 +1,19 @@
+import * as config from './serverConfig';
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-const server = express();
 
+const server = express();
 server.use(bodyParser.json());
 server.use(cookieParser());
 
-server.get('/Hello', (req: any, res: any) => {
-  res.send(200, 'world');
+server.get('/hello', (req: any, res: any) => {
+  if (config.HELLO === 'No Message defined') {
+    res.send(404, config.HELLO);
+  } else {
+    res.send(config.HELLO);
+  }
 });
 
 server.get('/repeat-my-query/', (req: any, res: any) => {
@@ -54,4 +60,4 @@ server.get('/repeat-my-cookie', (req: any, res: any) => {
 });
 
 console.log('Server Ready!');
-server.listen(8080);
+server.listen(config.PORT);
