@@ -1,3 +1,4 @@
+import StatusCodes from 'http-status-codes';
 import * as config from './serverConfig';
 
 const express = require('express');
@@ -10,7 +11,7 @@ server.use(cookieParser());
 
 server.get('/hello', (req: any, res: any) => {
   if (config.HELLO === 'No Message defined') {
-    res.send(404, config.HELLO);
+    res.send(StatusCodes.NOT_FOUND, config.HELLO);
   } else {
     res.send(config.HELLO);
   }
@@ -19,9 +20,9 @@ server.get('/hello', (req: any, res: any) => {
 server.get('/repeat-my-query/', (req: any, res: any) => {
   const { message } = req.query;
   if (message) {
-    res.send(200, message);
+    res.send(StatusCodes.OK, message);
   } else {
-    res.send(400, 'Bad request');
+    res.send(StatusCodes.BAD_REQUEST, 'Bad request');
   }
 });
 
@@ -35,7 +36,7 @@ server.post('/repeat-my-body', (req: any, res: any) => {
   if (req.body.message) {
     res.send(req.body.message);
   } else {
-    res.send(400, 'Bad Request');
+    res.send(StatusCodes.BAD_REQUEST, 'Bad Request');
   }// upcoming feature
 });
 
@@ -45,7 +46,7 @@ server.get('/repeat-my-header', (req: any, res: any) => {
     const message = req.header('X-message');
     res.send(message);
   } else {
-    res.send(400, 'Bad Request');
+    res.send(StatusCodes.BAD_REQUEST, 'Bad Request');
   } // upcoming feature
 });
 
@@ -55,7 +56,7 @@ server.get('/repeat-my-cookie', (req: any, res: any) => {
     const cookieMessage = req.cookies.message;
     res.send(cookieMessage);
   } else {
-    res.send(400, 'Bad Request');
+    res.send(StatusCodes.BAD_REQUEST, 'Bad Request');
   }
 });
 
