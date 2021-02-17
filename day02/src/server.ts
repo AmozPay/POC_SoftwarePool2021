@@ -18,9 +18,9 @@ server.get('/hello', (req: any, res: any) => {
 });
 
 server.get('/repeat-my-query/', (req: any, res: any) => {
-  const { message } = req.query;
-  if (message) {
-    res.send(StatusCodes.OK, message);
+  const message = req.query;
+  if (message['message']) {
+    res.send(StatusCodes.OK, message['message']);
   } else {
     res.send(StatusCodes.BAD_REQUEST, 'Bad request');
   }
@@ -58,6 +58,14 @@ server.get('/repeat-my-cookie', (req: any, res: any) => {
   } else {
     res.send(StatusCodes.BAD_REQUEST, 'Bad Request');
   }
+});
+
+server.get('/repeat-all-my-queries', (req: any, res: any) => {
+  let queries: object[] = [];
+  for (let obj of req.query) {
+    queries.push(obj);
+  }
+  res.send(queries);
 });
 
 console.log('Server Ready!');
